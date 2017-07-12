@@ -1,13 +1,12 @@
 class PortraitsController < ApplicationController
-
+  @image_count = 1
 
   def index
   end
 
   def process_image
     # Naming of unique image
-    image_count = 1
-    file_name = "image_" + image_count.to_s
+    file_name = "image_" + @image_count.to_s
 
     # Write binary image to file
     File.open('static/' + file_name + ".png","wb") do |file|
@@ -36,7 +35,7 @@ class PortraitsController < ApplicationController
 
     # Send portrait-only back to front-end
 
-    image_count += 1
+    @image_count += 1
     render status: :ok, json: {}
   end
 
