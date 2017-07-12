@@ -1,12 +1,12 @@
 class PortraitsController < ApplicationController
-  @image_count = 1
+  @@image_count = 1
 
   def index
   end
 
   def process_image
     # Naming of unique image
-    file_name = "image_" + @image_count.to_s
+    file_name = "image_" + @@image_count.to_s
 
     # Write binary image to file
     File.open('static/' + file_name + ".png","wb") do |file|
@@ -14,10 +14,6 @@ class PortraitsController < ApplicationController
     end
 
     # Resize canvas
-    # python
-    #
-    # file_name = "image_" + str(image_count)
-
     # `python ../tools/dockrun.py python ../tools/process.py \
     #   --input_dir static \
     #   --operation resize \
@@ -35,7 +31,7 @@ class PortraitsController < ApplicationController
 
     # Send portrait-only back to front-end
 
-    @image_count += 1
+    @@image_count += 1
     render status: :ok, json: {}
   end
 
