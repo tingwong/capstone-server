@@ -6,10 +6,10 @@ class PortraitsController < ApplicationController
 
   def process_image
     # Naming of unique image
-    file_name = "image_" + @@image_count.to_s
+    file_name = "image_" + @@image_count.to_s + ".png"
 
     # Write binary image to file
-    File.open('static/' + file_name + ".png","wb") do |file|
+    File.open('static/' + file_name,"wb") do |file|
       file.write(Base64.decode64(params[:canvasURL]))
     end
 
@@ -20,10 +20,10 @@ class PortraitsController < ApplicationController
       --output_dir ../test-resized/`
 
     # Process canvas to portrait
-    # `python ../tools/dockrun.py python ../server/tools/process-local.py \
-    #   --model_dir ../models/renaissance \
-    #   --input_file ../test-resized/test.png \
-    #   --output_file ../test-output/test.png`
+    `python ../tools/dockrun.py python ../server/tools/process-local.py \
+      --model_dir ../models/renaissance \
+      --input_file ../test-resized/#{file_name} \
+      --output_file ../test-output/#{file_name}`
 
     # Combine canvas with portraits
 
