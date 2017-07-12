@@ -10,7 +10,7 @@ class PortraitsController < ApplicationController
     file_name = "image_" + image_count.to_s
 
     # Write binary image to file
-    File.open('static/' + file_name,"wb") do |file|
+    File.open('static/' + file_name + ".png","wb") do |file|
       file.write(Base64.decode64(params[:canvasURL]))
     end
 
