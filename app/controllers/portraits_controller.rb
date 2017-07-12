@@ -9,7 +9,7 @@ class PortraitsController < ApplicationController
     file_name = "image_" + @@image_count.to_s + ".png"
 
     # Write binary image to file
-    File.open('static/' + file_name,"wb") do |file|
+    File.open("static/" + file_name,"wb") do |file|
       file.write(Base64.decode64(params[:canvasURL]))
     end
 
@@ -25,7 +25,17 @@ class PortraitsController < ApplicationController
       --input_file ../test-resized/#{file_name} \
       --output_file ../test-output/#{file_name}`
 
+      # `python ../tools/dockrun.py python ../server/tools/process-local.py \
+      #   --model_dir ../models/#{params[:style]} \
+      #   --input_file ../test-resized/#{file_name} \
+      #   --output_file ../test-output/#{file_name}`
+
     # Combine canvas with portraits
+    `python ../tools/dockrun.py python ../tools/process.py \
+      --input_dir ../test-resized \
+      --b_dir ../test-output/ \
+      --operation combine \
+      --output_dir ../before-after`
 
     # Send portrait-only back to front-end
 
