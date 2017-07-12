@@ -24,7 +24,7 @@ $(document).ready( function() {
             style: "insert portrait style",
         },
         success:function(data){
-            alert(data);
+            alert("Processed!");
         },
         error:function(data){
             debugger;
