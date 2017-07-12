@@ -10,17 +10,18 @@ class PortraitsController < ApplicationController
       file.write(Base64.decode64(params[:canvasURL]))
     end
 
-    render status: :ok, json: {}
+
     # Resize canvas
     `python ../tools/dockrun.py python ../tools/process.py \
-      --input_dir capstone-server/static \
+      --input_dir static \
       --operation resize \
-      --output_dir resized`
+      --output_dir ../test-resized`
 
     # Process canvas to portrait
     # Combine canvas with portraits
     # Send portrait-only back to front-end
 
+    render status: :ok, json: {}
   end
 
   private
