@@ -17,7 +17,7 @@ class PortraitsController < ApplicationController
     `python ../tools/dockrun.py python ../tools/process.py \
       --input_dir static \
       --operation resize \
-      --output_dir ../test-resized/` + file_name
+      --output_dir ../test-resized/`
 
     # Process canvas to portrait
     # `python ../tools/dockrun.py python ../server/tools/process-local.py \
