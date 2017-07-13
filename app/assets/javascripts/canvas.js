@@ -5,7 +5,7 @@ $(document).ready( function() {
   });
 
   // Set background color of canvas to white to prevent transparency
-  canvas.setBackgroundColor('rgba(0, 0, 255, 0.3)', canvas.renderAll.bind(canvas));
+  canvas.setBackgroundColor('rgba(255, 255, 255, 0.6)', canvas.renderAll.bind(canvas));
 
   var canvasEl = document.getElementById('myCanvas');
   var clearEl = document.getElementById('clearCanvas');
