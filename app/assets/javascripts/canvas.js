@@ -17,7 +17,6 @@ $(document).ready( function() {
     var canvasURL = canvas.toDataURL();
 
     canvasURL = canvasURL.replace(/^data:image\/(png|jpg);base64,/, "");
-    console.log(canvasURL);
 
     $.ajax({
       url:'/process',
