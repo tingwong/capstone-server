@@ -15,20 +15,22 @@ $(document).ready( function() {
     canvasURL = canvasURL.replace(/^data:image\/(png|jpg);base64,/, "");
     console.log(canvasURL);
 
+    canvas.setBackgroundColor('rgba(255,255,255, 0.6)', canvas.renderAll.bind(canvas));
+
     $.ajax({
-        url:'/process',
-        type:'POST',
-        dataType:'json',
-        data:{
-            canvasURL: canvasURL,
-            style: "insert portrait style",
-        },
-        success:function(data){
-            alert("Processed!");
-        },
-        error:function(data){
-            debugger;
-        }
+      url:'/process',
+      type:'POST',
+      dataType:'json',
+      data:{
+        canvasURL: canvasURL,
+        style: "insert portrait style",
+      },
+      success:function(data){
+        alert("Processed!");
+      },
+      error:function(data){
+        debugger;
+      }
     });
 
 
