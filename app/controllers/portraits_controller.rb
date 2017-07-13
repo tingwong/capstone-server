@@ -5,7 +5,7 @@ class PortraitsController < ApplicationController
   end
 
   def process_image
-    # Naming of unique image
+    # Unique naming for images
     file_name = "image_" + @@image_count.to_s + ".png"
 
     # Write binary image to file
