@@ -4,6 +4,9 @@ $(document).ready( function() {
     isDrawingMode: true
   });
 
+  // Set background color of canvas to white to prevent transparency
+  canvas.setBackgroundColor('rgba(0, 0, 255, 0.3)', canvas.renderAll.bind(canvas));
+
   var canvasEl = document.getElementById('myCanvas');
   var clearEl = document.getElementById('clearCanvas');
   var processEl = document.getElementById('processCanvas');
@@ -12,10 +15,11 @@ $(document).ready( function() {
 
   processEl.onclick = function(){
     var canvasURL = canvas.toDataURL();
+
     canvasURL = canvasURL.replace(/^data:image\/(png|jpg);base64,/, "");
     console.log(canvasURL);
 
-    canvas.setBackgroundColor('rgba(255,255,255, 0.6)', canvas.renderAll.bind(canvas));
+
 
     $.ajax({
       url:'/process',
