@@ -4,6 +4,9 @@ $(document).ready( function() {
     isDrawingMode: true
   });
 
+  canvas.setHeight(300);
+  canvas.setWidth(300);
+
   // Set background color of canvas to white to prevent transparency
   canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
 
@@ -24,16 +27,18 @@ $(document).ready( function() {
       dataType:'json',
       data:{
         canvasURL: canvasURL,
-        style: "insert portrait style",
+        style: "insert style"
       },
       success:function(data){
-        alert("Processed!");
+        console.log(data.file_name);
       },
       error:function(data){
         debugger;
       }
     });
 
+    // document.getElementById('imageDiv')
+    // .innerHTML = '<img src="~/capstone/pix2pix-tensorflow/test-output/" alt="processed_portrait">';
 
   }
 });
