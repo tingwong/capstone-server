@@ -37,8 +37,8 @@ $(document).ready( function() {
       }
     });
 
-    // document.getElementById('imageDiv')
-    // .innerHTML = '<img src="~/capstone/pix2pix-tensorflow/test-output/" alt="processed_portrait">';
+    document.getElementById('imageDiv')
+    .innerHTML = '<img src="~/capstone/pix2pix-tensorflow/test-output/"' + data.file_name + 'alt="processed_portrait">';
 
   }
 });
