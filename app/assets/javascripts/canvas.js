@@ -1,3 +1,5 @@
+const BASE_URL = "http://ec2-52-37-46-181.us-west-2.compute.amazonaws.com:8080/";
+
 
 $(document).ready( function() {
   var canvas = new fabric.Canvas('myCanvas',{
@@ -33,7 +35,7 @@ $(document).ready( function() {
         console.log(data.file_name);
 
         document.getElementById('imageDiv')
-        .innerHTML = ('<img src="../../../capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');
+        .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');
       },
       error:function(data){
         debugger;
