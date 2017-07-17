@@ -20,8 +20,6 @@ $(document).ready( function() {
   canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
 
   var canvasEl = $('#myCanvas');
-  // var clearEl = document.getElementById('clearCanvas');
-  // var processEl = document.getElementById('processCanvas');
   var clearEl = $('#clearCanvas');
   var processEl = $('#processCanvas');
 
