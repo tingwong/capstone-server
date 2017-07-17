@@ -1,7 +1,7 @@
-const BASE_URL = "http://ec2-52-37-46-181.us-west-2.compute.amazonaws.com:8080/";
-
+const BASE_URL = "http://" + location.host + ":8080/";
 
 $(document).ready( function() {
+
   var canvas = new fabric.Canvas('myCanvas',{
     isDrawingMode: true
   });
@@ -16,12 +16,17 @@ $(document).ready( function() {
   var clearEl = document.getElementById('clearCanvas');
   var processEl = document.getElementById('processCanvas');
 
-  clearEl.onclick = function(){ canvas.clear() };
+  clearEl.onclick = function(){
+    canvas.clear();
+    canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
+  };
 
   processEl.onclick = function(){
     var canvasURL = canvas.toDataURL();
 
     canvasURL = canvasURL.replace(/^data:image\/(png|jpg);base64,/, "");
+
+    var style = document.getElementById('styleInput').value;
 
     $.ajax({
       url:'/process',
@@ -29,10 +34,11 @@ $(document).ready( function() {
       dataType:'json',
       data:{
         canvasURL: canvasURL,
-        style: "insert style"
+        style: style
       },
       success:function(data){
         console.log(data.file_name);
+        console.log(data.style);
 
         document.getElementById('imageDiv')
         .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');

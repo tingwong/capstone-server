@@ -5,7 +5,6 @@ class PortraitsController < ApplicationController
 
   def process_image
     # Unique naming for images
-    # file_name = "image_" + @@image_count.to_s + ".png"
 
     file_name = SecureRandom.uuid + ".png"
 
@@ -40,7 +39,7 @@ class PortraitsController < ApplicationController
 
     # Send portrait-only back to front-end
 
-    render status: :ok, json: {file_name: file_name}
+    render status: :ok, json: {file_name: file_name, style: params[:style]}
   end
 
   private
