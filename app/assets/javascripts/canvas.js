@@ -1,4 +1,4 @@
-const BASE_URL = "http://" + location.host + ":8080/";
+const BASE_URL = "http://" + location.hostname + ":8080/";
 
 $(document).ready( function() {
 
