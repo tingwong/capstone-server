@@ -1,5 +1,12 @@
 const BASE_URL = "http://" + location.hostname + ":8080/";
 
+var $body = $('body');
+
+$(document).on({
+  ajaxStart: function() { $body.addClass("loading");  console.log("AJAXSTART");   },
+  ajaxStop: function() { $body.removeClass("loading"); }
+});
+
 $(document).ready( function() {
 
   var canvas = new fabric.Canvas('myCanvas',{
@@ -12,16 +19,18 @@ $(document).ready( function() {
   // Set background color of canvas to white to prevent transparency
   canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
 
-  var canvasEl = document.getElementById('myCanvas');
-  var clearEl = document.getElementById('clearCanvas');
-  var processEl = document.getElementById('processCanvas');
+  var canvasEl = $('#myCanvas');
+  // var clearEl = document.getElementById('clearCanvas');
+  // var processEl = document.getElementById('processCanvas');
+  var clearEl = $('#clearCanvas');
+  var processEl = $('#processCanvas');
 
-  clearEl.onclick = function(){
+  clearEl.click(function(){
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
-  };
+  });
 
-  processEl.onclick = function(){
+  processEl.click(function(){
     var canvasURL = canvas.toDataURL();
 
     canvasURL = canvasURL.replace(/^data:image\/(png|jpg);base64,/, "");
@@ -49,5 +58,5 @@ $(document).ready( function() {
     });
 
 
-  }
+  });
 });
