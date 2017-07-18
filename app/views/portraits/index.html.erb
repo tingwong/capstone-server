@@ -1,15 +1,48 @@
-<h3> Good Morning, Ting! </h3>
-<canvas id="myCanvas"></canvas>
-<br>
-<button id="clearCanvas" class="button-primary">Clear</button> <br>
-<form class="two columns" id="styleSelection">
-  <label for="exampleRecipientInput">Portrait Style</label>
-  <select class="u-full-width" id="styleInput">
-    <option value="renaissance">Renaissance</option>
-    <option value="cubist">Cubist</option>
-    <option value="ukiyo-e">Ukiyo-E</option>
-  </select>
-</form>
-<button id="processCanvas" class="button-primary">Process</button>
-<div id="imageDiv"></div>
+<div class="container">
+  <div class="row">
+    <h2 class="twelve columns"> pocket picasso. </h3>
+  </div>
+
+  <div id="megaRow" class="row">
+    <div class="four columns">
+      <div class="row">
+        <canvas id="myCanvas" class="three columns"></canvas>
+      </div>
+    </div>
+
+    <div id="buttonGroup" class="two columns">
+      <div class="row">
+        <div class="twelve columns">
+          <button id="clearCanvas" class="button-primary">Clear</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <form id="styleSelection">
+            <label for="exampleRecipientInput">Portrait Style</label>
+            <select class="u-full-width" id="styleInput">
+              <option value="renaissance">Renaissance</option>
+              <option value="cubist">Cubist</option>
+              <option value="ukiyo-e">Ukiyo-E</option>
+            </select>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <button id="processCanvas" class="button-primary">Process</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="four columns" id="imageDiv"></div>
+    </div>
+  </div>
+
+</div>
+
 <div class="modal"></div>
+</div>

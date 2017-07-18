@@ -1,10 +1,8 @@
 const BASE_URL = "http://" + location.hostname + ":8080/";
 
-var $body = $('body');
-
 $(document).on({
-  ajaxStart: function() { $body.addClass("loading");  console.log("AJAXSTART");   },
-  ajaxStop: function() { $body.removeClass("loading"); }
+  ajaxStart: function() { $('body').addClass('loading');   },
+  ajaxStop: function() { $('body').removeClass("loading"); }
 });
 
 $(document).ready( function() {

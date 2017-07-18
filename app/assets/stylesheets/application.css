@@ -1,6 +1,7 @@
  #myCanvas {
   border-style: solid;
   border-width: 2px;
+  border-color: lightgrey;
 }
 
 img {
@@ -8,8 +9,16 @@ img {
   height: 300px;
 }
 
-h3{
-  color: pink;
+canvas.upper-canvas {
+  margin-left: 0px;
+}
+
+h2 {
+  color: darkgrey;
+}
+
+#megaRow {
+  text-align: center;
 }
 
 /* Start by setting display:none to make this hidden.
@@ -41,4 +50,15 @@ body.loading {
    modal element will be visible */
 body.loading .modal {
     display: block;
+}
+
+form#styleSelection {
+  margin: 0px;
+}
+
+#buttonGroup {
+  margin-left: 6.5%;
+  margin-right: 5%;
+  margin-top: 50px;
+  text-align: center;
 }
