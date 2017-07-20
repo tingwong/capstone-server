@@ -4,6 +4,14 @@
   border-color: lightgrey;
 }
 
+#imageDiv {
+ border-style: solid;
+ border-width: 2px;
+ border-color: lightgrey;
+ height: 303px;
+ width: 303px;
+}
+
 img {
   width: 300px;
   height: 300px;
@@ -13,12 +21,20 @@ canvas.upper-canvas {
   margin-left: 0px;
 }
 
-h2 {
-  color: darkgrey;
+#headerContainer {
+  /*color: darkgrey;*/
+  margin-top: 3%;
+  margin-left: 15%;
+}
+
+#headerElement {
+  margin-bottom: 1%;
 }
 
 #megaRow {
   text-align: center;
+  /*margin-left: 10%;*/
+  margin-top: 2%;
 }
 
 /* Start by setting display:none to make this hidden.
