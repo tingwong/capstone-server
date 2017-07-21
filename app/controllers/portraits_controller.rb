@@ -20,11 +20,6 @@ class PortraitsController < ApplicationController
       --output_dir ../test-resized/`
 
     # Process canvas to portrait
-    # `python ../tools/dockrun.py python ../server/tools/process-local.py \
-    #   --model_dir ../models/renaissance \
-    #   --input_file ../test-resized/#{file_name} \
-    #   --output_file ../test-output/#{file_name}`
-
     `python ../tools/dockrun.py python ../server/tools/process-local.py \
       --model_dir ../models/#{params[:style]} \
       --input_file ../test-resized/#{file_name} \

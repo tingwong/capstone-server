@@ -24,6 +24,7 @@ $(document).ready( function() {
   clearEl.click(function(){
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
+    $('img').hide();
   });
 
   processEl.click(function(){
@@ -43,7 +44,6 @@ $(document).ready( function() {
       },
       success:function(data){
         console.log(data.file_name);
-        console.log(data.style);
 
         document.getElementById('imageDiv')
         .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');
