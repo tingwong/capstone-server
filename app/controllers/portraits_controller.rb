@@ -1,7 +1,7 @@
 class PortraitsController < ApplicationController
 
   def index
-    Dir.chdir("~/capstone/pix2pix-tensorflow/test-output/")
+    Dir.chdir("/capstone/pix2pix-tensorflow/test-output/")
     files_sorted_by_time = Dir['*'].sort_by{ |f| File.ctime(f) }
     render status: :ok, json: {directory: Dir.pwd}
   end
