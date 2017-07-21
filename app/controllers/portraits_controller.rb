@@ -7,9 +7,6 @@ class PortraitsController < ApplicationController
   def process_image
     # Unique naming for images
 
-    puts `pwd`
-    puts `ls`
-
     file_name = SecureRandom.uuid + ".png"
 
     # Write binary image to file

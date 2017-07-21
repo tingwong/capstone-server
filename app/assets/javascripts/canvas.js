@@ -21,6 +21,36 @@ $(document).ready( function() {
   var clearEl = $('#clearCanvas');
   var processEl = $('#processCanvas');
 
+  // Loading image gallery
+
+  // $.ajax({
+  //   url:'/gallery',
+  //   type:'GET',
+  //   dataType:'json',
+  //   success:function(data){
+  //     console.log(data.file_name);
+  //
+  //     document.getElementById('imageDiv')
+  //     .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');
+  //   },
+  //   error:function(data){
+  //     debugger;
+  //   }
+  // });
+
+  var fileextension = ".png";
+  $.ajax({
+      //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+      url: '/gallery',
+      success: function (data) {
+          //List all .png file names in the page
+          $(data).find("a:contains(" + fileextension + ")").each(function () {
+              var filename = this.href.replace(window.location.host, "").replace("http://", "");
+              $("body").append("<img src='" + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + filename + "'>");
+          });
+      }
+  });
+
   clearEl.click(function(){
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
