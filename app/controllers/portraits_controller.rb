@@ -1,7 +1,12 @@
 class PortraitsController < ApplicationController
 
   def index
-    files_sorted_by_time = Dir['/home/ubuntu/capstone/pix2pix-tensorflow/test-output/*'].sort_by{ |f| File.ctime(f) }.reverse
+
+  end
+
+  def gallery
+    @files_sorted_by_time = Dir['/home/ubuntu/capstone/pix2pix-tensorflow/test-output/*'].sort_by{ |f| File.ctime(f) }.first(10).reverse
+    render status: :ok, json: {files_sorted_by_time: @files_sorted_by_time}
   end
 
   def process_image
