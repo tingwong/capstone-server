@@ -3,9 +3,8 @@ const BASE_URL = "http://" + location.hostname + ":8080/";
 // Display all images
 function imageList(data) {
   for (var i = 0; i < data.length; i++) {
-    // document.getElementById('imageGallery')
-    // .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>');
-    console.log(('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i].slice(53) + '" alt="processed_portrait">' + '</li>'));
+    document.getElementById('imageGallery')
+    .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i].slice(53) + '" alt="processed_portrait">' + '</li>');
   }
 }
 
