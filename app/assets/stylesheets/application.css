@@ -21,6 +21,11 @@ canvas.upper-canvas {
   margin-left: 0px;
 }
 
+li {
+    display: block;
+    float: left;
+}
+
 #headerContainer {
   /*color: darkgrey;*/
   margin-top: 3%;
