@@ -6,7 +6,7 @@ function imageList(data) {
     document.getElementById('imageGallery')
     .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i].slice(53) + '" alt="processed_portrait">' + '</li>');
   }
-}
+};
 
 function loadGallery() {
   $.ajax({
@@ -14,16 +14,13 @@ function loadGallery() {
     type:'GET',
     dataType:'json',
     success:function(data){
-      console.log(data.files_sorted_by_time);
-
       imageList(data.files_sorted_by_time);
-
     },
     error:function(data){
       debugger;
     }
   });
-}
+};
 
 $(document).on({
   ajaxStart: function() { $('body').addClass('loading');   },
@@ -48,21 +45,6 @@ $(document).ready( function() {
 
   // Loading image gallery
   loadGallery();
-
-  // AJAX call
-  // $.ajax({
-  //   //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-  //   url: '/gallery',
-  //   success: function (data) {
-  //     //List all .png file names in the page
-  //     $(data).find("a:contains(" + fileextension + ")").each(function () {
-  //       var filename = this.href.replace(window.location.host, "").replace("http://", "");
-  //       $("body").append("<img src='" + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + filename + "'>");
-  //     });
-  //
-  //     // console.log(data);
-  //   }
-  // });
 
   clearEl.click(function(){
     canvas.clear();
@@ -96,6 +78,8 @@ $(document).ready( function() {
       }
     });
 
+    // Re-loading image gallery to show newly-processed image
+    loadGallery();
 
   });
 });
