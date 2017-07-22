@@ -14,6 +14,7 @@ function loadGallery() {
     type:'GET',
     dataType:'json',
     success:function(data){
+      console.log(data.files_sorted_by_time);
       imageList(data.files_sorted_by_time);
     },
     error:function(data){
