@@ -23,7 +23,7 @@ canvas.upper-canvas {
 
 #imageGallery {
   margin-top: 10%;
-
+  margin-left: 11%;
 }
 
 li {
@@ -46,6 +46,11 @@ li {
   text-align: center;
   /*margin-left: 10%;*/
   margin-top: 2%;
+}
+
+#galleryHeader {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 /* Start by setting display:none to make this hidden.
