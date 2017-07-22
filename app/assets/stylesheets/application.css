@@ -21,9 +21,15 @@ canvas.upper-canvas {
   margin-left: 0px;
 }
 
+#imageGallery {
+  margin-top: 10%;
+
+}
+
 li {
     display: block;
     float: left;
+    margin-right: 2%;
 }
 
 #headerContainer {
