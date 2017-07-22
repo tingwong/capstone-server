@@ -9,12 +9,14 @@ function loadGallery() {
       console.log(data.files_sorted_by_time);
 
       // Display all images
-      for (var i = 0; i < data.length; i++) {
-        // document.getElementById('imageGallery')
-        // .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>');
-        console.log(('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>'));
-
+      var imageList = function(imageArray) {
+        for (var i = 0; i < data.length; i++) {
+          // document.getElementById('imageGallery')
+          // .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>');
+          console.log(('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>'));
+        }
       }
+      imageList(data.files_sorted_by_time);
 
     },
     error:function(data){
