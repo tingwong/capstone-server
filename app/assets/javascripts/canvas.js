@@ -11,7 +11,7 @@ function loadGallery() {
       // Display all images
       for (var i = 0; i < data.length; i++) {
         document.getElementById('imageGallery')
-        .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i] + '" alt="processed_portrait">');
+        .innerHTML += ('<li>' + '<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.files_sorted_by_time[i] + '" alt="processed_portrait">' + '</li>');
       }
 
     },
