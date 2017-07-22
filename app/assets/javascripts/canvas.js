@@ -1,6 +1,25 @@
 const BASE_URL = "http://" + location.hostname + ":8080/";
 
+function loadGallery() {
+  $.ajax({
+    url:'/gallery',
+    type:'GET',
+    dataType:'json',
+    success:function(data){
+      console.log(data.files_sorted_by_time);
 
+      // Display all images
+      for (var i = 0; i < data.length; i++) {
+        document.getElementById('imageGallery')
+        .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i] + '" alt="processed_portrait">');
+      }
+
+    },
+    error:function(data){
+      debugger;
+    }
+  });
+}
 
 $(document).on({
   ajaxStart: function() { $('body').addClass('loading');   },
@@ -24,44 +43,22 @@ $(document).ready( function() {
   var processEl = $('#processCanvas');
 
   // Loading image gallery
+  loadGallery();
 
-  function loadGallery() {
-    $.ajax({
-      url:'/gallery',
-      type:'GET',
-      dataType:'json',
-      success:function(data){
-        console.log(data.files_sorted_by_time);
-
-        // Display all images
-        // for (var i = 0; i < data.length; i++) {
-        //   document.getElementById('imageGallery')
-        //   .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data[i] + '" alt="processed_portrait">');
-        // }
-
-
-
-      },
-      error:function(data){
-        debugger;
-      }
-    });
-  }
-
-  var fileextension = ".png";
-  $.ajax({
-    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
-    url: '/gallery',
-    success: function (data) {
-      //List all .png file names in the page
-      $(data).find("a:contains(" + fileextension + ")").each(function () {
-        var filename = this.href.replace(window.location.host, "").replace("http://", "");
-        $("body").append("<img src='" + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + filename + "'>");
-      });
-
-      // console.log(data);
-    }
-  });
+  // AJAX call
+  // $.ajax({
+  //   //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+  //   url: '/gallery',
+  //   success: function (data) {
+  //     //List all .png file names in the page
+  //     $(data).find("a:contains(" + fileextension + ")").each(function () {
+  //       var filename = this.href.replace(window.location.host, "").replace("http://", "");
+  //       $("body").append("<img src='" + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + filename + "'>");
+  //     });
+  //
+  //     // console.log(data);
+  //   }
+  // });
 
   clearEl.click(function(){
     canvas.clear();
