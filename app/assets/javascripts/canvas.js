@@ -50,7 +50,8 @@ $(document).ready( function() {
   clearEl.click(function(){
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
-    $('#imageDiv').hide();
+    $('#processedImage').hide();
+    $('#imageGallery').empty();
     loadGallery();
   });
 
@@ -73,7 +74,7 @@ $(document).ready( function() {
         console.log(data.file_name);
 
         document.getElementById('imageDiv')
-        .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait">');
+        .innerHTML = ('<img src="' + BASE_URL + 'capstone/pix2pix-tensorflow/test-output/' + data.file_name + '" alt="processed_portrait" id="processedImage">');
       },
       error:function(data){
         debugger;
@@ -81,6 +82,7 @@ $(document).ready( function() {
     });
 
     // Re-loading image gallery to show newly-processed image
+    $('#imageGallery').empty();
     loadGallery();
 
   });
