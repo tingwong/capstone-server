@@ -50,7 +50,7 @@ $(document).ready( function() {
   clearEl.click(function(){
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
-    $('img').hide();
+    $('#imageDiv').hide();
     loadGallery();
   });
 
