@@ -9,6 +9,9 @@ function imageList(data) {
 };
 
 function loadGallery() {
+  // Clear current gallery contents
+  $('#imageGallery').empty();
+
   $.ajax({
     url:'/gallery',
     type:'GET',
@@ -51,7 +54,6 @@ $(document).ready( function() {
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
     $('#processedImage').hide();
-    $('#imageGallery').empty();
     loadGallery();
   });
 
@@ -82,7 +84,6 @@ $(document).ready( function() {
     });
 
     // Re-loading image gallery to show newly-processed image
-    $('#imageGallery').empty();
     loadGallery();
 
   });
