@@ -51,6 +51,7 @@ $(document).ready( function() {
     canvas.clear();
     canvas.setBackgroundColor('rgba(255, 255, 255, 1)', canvas.renderAll.bind(canvas));
     $('img').hide();
+    loadGallery();
   });
 
   processEl.click(function(){
